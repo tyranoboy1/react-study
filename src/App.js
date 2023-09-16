@@ -104,22 +104,31 @@ import Layout from "./Layout";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
+import ColorBox from "./Components/ColorBox";
+import ColorContext, { ColorProvider } from "./contexts/color";
+import SelectColors from "./Components/SelectColors";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/profiles/:username" element={<Profile />} />
-      </Route>
-      <Route path="/articles" element={<Articles />}>
-        <Route path=":id" element={<Article />} />
-      </Route>
-      <Route path="/login" element={<Login />} />
-      <Route path="/mypage" element={<MyPage />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    // <Routes>
+    //   <Route path="/" element={<Layout />}>
+    //     <Route index element={<Home />} />
+    //     <Route path="/about" element={<About />} />
+    //     <Route path="/profiles/:username" element={<Profile />} />
+    //   </Route>
+    //   <Route path="/articles" element={<Articles />}>
+    //     <Route path=":id" element={<Article />} />
+    //   </Route>
+    //   <Route path="/login" element={<Login />} />
+    //   <Route path="/mypage" element={<MyPage />} />
+    //   <Route path="*" element={<NotFound />} />
+    // </Routes>
+    <ColorProvider>
+      <div>
+        <SelectColors />
+        <ColorBox />
+      </div>
+    </ColorProvider>
   );
 };
 
